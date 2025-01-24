@@ -17,12 +17,26 @@ Currently, two official plugins are available:
 
 - [x] Set up `server.js` with Express
 - [x] Install dependencies: `express`, `mongoose`, `dotenv`, `cors`, `jsonwebtoken`
-- [ ] Configure **MongoDB Atlas** connection (`mongoose.connect`)
-- [ ] Set up **authentication middleware** (JWT/Auth0 verification)
+- [x] Configure **MongoDB Atlas** connection (`mongoose.connect`)
+- [x] Set up **authentication middleware** (JWT/Auth0 verification)
 - [ ] Create Express **routes & controllers**:
+
   - [ ] `authRoutes.js` → Handle Auth0 token verification
   - [ ] `templateRoutes.js` → CRUD for packing templates
   - [ ] `packlistRoutes.js` → CRUD for user packlists
+
+  #### **API Endpoints**
+
+| Method | Endpoint             | Description              |
+| ------ | -------------------- | ------------------------ |
+| POST   | `/api/auth/register` | Register new user        |
+| POST   | `/api/auth/login`    | Log in user              |
+| GET    | `/api/packlists`     | Get user’s packlists     |
+| POST   | `/api/packlists`     | Create a new packlist    |
+| PUT    | `/api/packlists/:id` | Update a packlist        |
+| DELETE | `/api/packlists/:id` | Delete a packlist        |
+| GET    | `/api/templates`     | Get predefined templates |
+| POST   | `/api/templates`     | Create a new template    |
 
 ### ✅ Models (MongoDB Schema with Mongoose)
 
