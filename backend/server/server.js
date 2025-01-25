@@ -40,6 +40,7 @@ app.get('/', (req, res) => {
     res.send('Packlist app is running,and holy shit its working')
 })
 
+
 app.get('/profile', requiresAuth(), (req, res) => {
     res.send(JSON.stringify(req.oidc.user))
 
