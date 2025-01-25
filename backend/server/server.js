@@ -5,8 +5,9 @@ import cors from 'cors'
 import mongoose from "mongoose";
 import pkg from 'express-openid-connect'
 const { auth, requiresAuth } = pkg
+import packlistRoutes from "../routes/packlistRoutes.js"
 import Packlist from '../models/Packlist.js';
-import Template from '../models/Template.js';
+// import Template from '../models/Template.js';
 
 
 
@@ -31,6 +32,8 @@ app.use(express.json())
 app.use(auth(authConfig))
 
 mongoose.connect(process.env.MONGO_URI).then(() => { console.log("Connected to DB") }).catch((err) => console.log(err))
+
+app.use("/packlists", packlistRoutes)
 
 app.get('/', (req, res) => {
 
