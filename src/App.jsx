@@ -1,25 +1,18 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import axios from "axios";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000")
-      .then((res) => {
-        setMessage(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      }, []);
-  });
   return (
-    <div>
-      <h1>Packlist</h1>
-      <p>{message}</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path='/'
+          element={<HomePage />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
