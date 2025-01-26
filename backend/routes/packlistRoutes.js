@@ -59,6 +59,20 @@ router.put("/:id", async (req, res) => {
     }
 })
 
+router.patch("/addItem/:id", async (req, res) => {
+
+    const id = req.params.id
+    const itemToAdd = req.body
+    try {
+        const packListToBeUpdated = await Packlist.findById(id)
+        packListToBeUpdated.items.push(itemToAdd)
+        packListToBeUpdated.save()
+        res.status(200).json(packListToBeUpdated)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 router.delete("/:id", async (req, res) => {
 
 
