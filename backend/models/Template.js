@@ -9,7 +9,8 @@ const TemplateSchema = new mongoose.Schema({
             category: { type: String }
         }
     ],
-    userId: { type: String, required: true }
+    userId: { type: String, required: true },
+    category: { type: String, required: true }
 }, { timestamps: true })
 
 const Template = mongoose.model("Template", TemplateSchema)
