@@ -1,7 +1,7 @@
 import express from "express"
 import Template from "../models/Template.js"
 
-const router = express.router()
+const router = express.Router()
 
 router.post("/", async (req, res) => {
 
@@ -13,6 +13,18 @@ router.post("/", async (req, res) => {
         res.status(201).json(newTemplate)
     } catch (error) {
         res.status(500).json({ error })
+
+    }
+})
+
+router.get("/", async (req, res) => {
+
+    try {
+        const templates = await Template.find()
+
+        res.status(200).json(templates)
+    } catch (error) {
+        res.status(500).json(error)
 
     }
 })
@@ -30,3 +42,7 @@ router.get("/:id", async (req, res) => {
 
     }
 })
+
+
+export default router
+
