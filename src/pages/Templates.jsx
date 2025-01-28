@@ -16,7 +16,7 @@ function Templates() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/templates") // Make sure this matches your backend route
+    fetch("http://localhost:5000/templates")
       .then((res) => res.json())
       .then((data) => {
         setTemplates(data);
@@ -26,7 +26,7 @@ function Templates() {
         console.error("Error fetching templates:", err);
         setLoading(false);
       });
-  }, []); // Run only once on mount
+  }, []);
 
   return (
     <Container maxWidth='md'>
