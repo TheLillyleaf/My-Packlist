@@ -9,7 +9,6 @@ const TemplateSchema = new mongoose.Schema({
             name: { type: String, required: true },
             category: { type: String },
             quantity: { type: Number, required: true },
-            packed: { type: Boolean, default: false },
             weight: { type: Number }
         }
     ],
