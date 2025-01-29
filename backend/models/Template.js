@@ -5,8 +5,12 @@ const TemplateSchema = new mongoose.Schema({
     name: { type: String, required: true },
     items: [
         {
+
             name: { type: String, required: true },
-            category: { type: String }
+            category: { type: String },
+            quantity: { type: Number, required: true },
+            packed: { type: Boolean, default: false },
+            weight: { type: Number }
         }
     ],
     userId: { type: String, required: true },

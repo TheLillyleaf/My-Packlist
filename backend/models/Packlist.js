@@ -3,13 +3,14 @@ import mongoose from "mongoose";
 const PacklistSchema = new mongoose.Schema({
 
     name: { type: String, required: true },
-    items: [
+    items: [{
 
-        {
-            name: { type: String, required: true },
-            category: { type: String },
-            quantity: { type: Number, default: 1 }
-        }],
+        name: { type: String, required: true },
+        category: { type: String },
+        quantity: { type: Number, required: true },
+        packed: { type: Boolean, default: false },
+        weight: { type: Number }
+    }],
     userId: { type: String, required: true }
 
 }, { timestamps: true });
