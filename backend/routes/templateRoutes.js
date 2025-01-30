@@ -6,8 +6,10 @@ const router = express.Router()
 router.post("/", async (req, res) => {
 
     try {
-        const { name, items, userId, category } = req.body
-        const newTemplate = new Template({ name, items, userId, category })
+        const { name, description, items, userId, category } = req.body
+        console.log(req.body)
+        console.log("data", name, description, items, userId, category)
+        const newTemplate = new Template({ name, description, items, userId, category })
 
         await newTemplate.save()
         res.status(201).json(newTemplate)
@@ -46,9 +48,10 @@ router.get("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
 
     try {
-        await Template.deleteOne(req.params.id)
+        await Template.findByIdAndDelete(req.params.id)
         res.status(200).json({ message: "Template deleted" })
     } catch (error) {
+        console.log(error)
         res.status(500).json(error)
     }
 })

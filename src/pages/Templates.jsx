@@ -37,7 +37,7 @@ function Templates() {
 
   const deleteTemplate = async (id) => {
     try {
-      const result = fetch(`http://localhost:5000/templates/${id}`, {
+      const result = await fetch(`http://localhost:5000/templates/${id}`, {
         method: "DELETE",
       });
 
