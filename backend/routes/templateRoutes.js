@@ -43,6 +43,16 @@ router.get("/:id", async (req, res) => {
     }
 })
 
+router.delete("/:id", async (req, res) => {
+
+    try {
+        await Template.deleteOne(req.params.id)
+        res.status(200).json({ message: "Template deleted" })
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 
 export default router
 

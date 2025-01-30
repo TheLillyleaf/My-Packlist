@@ -7,6 +7,7 @@ const TemplateSchema = new mongoose.Schema({
         {
 
             name: { type: String, required: true },
+            description: { type: String },
             category: { type: String },
             quantity: { type: Number, required: true },
             weight: { type: Number }
