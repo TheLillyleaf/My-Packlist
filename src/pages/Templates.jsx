@@ -12,14 +12,18 @@ import {
   Button,
   IconButton,
   Tooltip,
+  Snackbar,
+  Fab,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import AddIcon from "@mui/icons-material/Add";
 
 function Templates() {
   const [templates, setTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,29 +45,45 @@ function Templates() {
         method: "DELETE",
       });
 
-      if (result.ok)
+      if (result.ok) {
         setTemplates(templates.filter((template) => template._id !== id));
-      else console.error("Template not deleted");
+        setSnackbarOpen(true);
+      } else console.error("Template not deleted");
     } catch (error) {
       console.log(error);
     }
   };
 
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
+
   return (
     <Container maxWidth='md'>
+      <Fab
+        color='primary'
+        aria-label='add'
+        size='large'
+        sx={{ position: "fixed", bottom: 100, right: 200 }}
+        onClick={() => navigate("/templates/new")}
+      >
+        <AddIcon />
+      </Fab>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        message='Template has been deleted'
+      />
       <Typography
         variant='h4'
         gutterBottom
       >
         Templates
       </Typography>
-      <Typography
-        variant='subtitle1'
-        paragraph
-      >
+      <Typography variant='subtitle1'>
         Create custom templates for Packlists
       </Typography>
-
       {loading ? (
         <CircularProgress />
       ) : (

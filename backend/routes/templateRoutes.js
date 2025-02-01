@@ -7,8 +7,6 @@ router.post("/", async (req, res) => {
 
     try {
         const { name, description, items, userId, category } = req.body
-        console.log(req.body)
-        console.log("data", name, description, items, userId, category)
         const newTemplate = new Template({ name, description, items, userId, category })
 
         await newTemplate.save()
