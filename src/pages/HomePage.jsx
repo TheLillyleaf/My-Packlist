@@ -10,7 +10,7 @@ function HomePage() {
       <p>Home page of PackList!! </p>
 
       <Button
-        onClick={() => navigate("/templates")}
+        onClick={() => navigate("/template")}
         variant='contained'
       >
         View templates

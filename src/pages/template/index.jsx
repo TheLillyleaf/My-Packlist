@@ -65,7 +65,7 @@ function Templates() {
         aria-label='add'
         size='large'
         sx={{ position: "fixed", bottom: 100, right: 200 }}
-        onClick={() => navigate("/templates/new")}
+        onClick={() => navigate("/template/new")}
       >
         <AddIcon />
       </Fab>

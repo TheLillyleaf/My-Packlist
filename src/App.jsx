@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import Packlist from "./pages/Packlist";
-import Templates from "./pages/Templates";
+import Packlist from "./pages/packlist/index";
+import Templates from "./pages/template/index";
+import NewTemplate from "./pages/template/new";
 
 function App() {
   return (
@@ -14,12 +14,17 @@ function App() {
           element={<HomePage />}
         />
         <Route
-          path='/templates'
+          path='/template'
           element={<Templates />}
         />
         <Route
           path='/packlist'
           element={<Packlist />}
+        />
+
+        <Route
+          path='/template/new'
+          element={<NewTemplate />}
         />
       </Routes>
     </Router>
