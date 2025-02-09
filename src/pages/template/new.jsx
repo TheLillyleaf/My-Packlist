@@ -1,4 +1,11 @@
-import { Card, Grid2, Input, TextField } from "@mui/material";
+import {
+  Card,
+  Grid2,
+  Input,
+  TextField,
+  CardContent,
+  Typography,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 
 const defaultValues = {
@@ -85,36 +92,28 @@ function NewTemplate() {
             rowSpacing={1}
           >
             <Card>
-              <Grid2 size={6}>
-                <TextField
-                  label={"Name"}
-                  required
-                  id='templateName'
-                  name='Name'
-                  variant='outlined'
-                  helperText='Name of Template'
-                />
-              </Grid2>
-              <Grid2 size={6}>
-                <TextField
-                  label={"Description"}
-                  required
-                  id='templateDescription'
-                  name='Description'
-                  variant='outlined'
-                  helperText='Description of Template'
-                />
-              </Grid2>
-              <Grid2 size={6}>
-                <TextField
-                  label={"Category"}
-                  required
-                  id='templateCategory'
-                  name='Category'
-                  variant='outlined'
-                  helperText='Category of Template'
-                />
-              </Grid2>
+              <CardContent>
+                <Typography
+                  variant='h3'
+                  gutterBottom
+                >
+                  {formValues.name ? formValues.name : "Name"}
+                </Typography>
+                <Typography
+                  variant='h5'
+                  gutterBottom
+                >
+                  {formValues.description
+                    ? formValues.description
+                    : "Description"}
+                </Typography>
+                <Typography
+                  variant='h5'
+                  gutterBottom
+                >
+                  {formValues.category ? formValues.category : "Category"}
+                </Typography>
+              </CardContent>
             </Card>
           </Grid2>
         </Grid2>
